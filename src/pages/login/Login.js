@@ -20,7 +20,7 @@ export default function Login() {
     //LOCALSTORAGE ICERISINDE TUTULACAK SEKILDE
   };
   return (
-    <div className="login__container">
+    <div className="login-page">
       <AppWindow title={languages_data[language].greeting}>
         <WindowInput
           onSubmitFunction={handleUserRegister}
