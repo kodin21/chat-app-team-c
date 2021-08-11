@@ -1,0 +1,8 @@
+.app {
+  height: 100vh;
+
+  &__background--retro {
+    background-image: url("./assets/img/app__background--retro.png");
+    background-size: cover;
+  }
+}
