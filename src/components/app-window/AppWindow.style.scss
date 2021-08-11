@@ -1,0 +1,35 @@
+.window {
+  display: grid;
+  grid-template-rows: 4rem 1fr;
+
+  width: 100%;
+  height: 100%;
+
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+
+  &__bar {
+    font-size: 2.1rem;
+    &--retro {
+      background: linear-gradient(
+        90deg,
+        #00007b -1.43%,
+        #405580 69.89%,
+        #197ba0 101.53%
+      );
+      border: 2px solid #ffffff;
+      box-sizing: border-box;
+
+      color: white;
+      padding-left: 1rem;
+    }
+  }
+  &__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &--retro {
+      background-color: #bdbdbd;
+    }
+  }
+}
