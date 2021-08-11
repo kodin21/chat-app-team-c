@@ -1,0 +1,23 @@
+.window-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  justify-content: center;
+  &__label {
+    font-size: 2rem;
+  }
+  &__input {
+    width: 35rem;
+    height: 4rem;
+    border: none;
+    padding-left: 1rem;
+    font-size: 1.7rem;
+    font-family: inherit;
+    margin: 2rem 0;
+
+    &--retro {
+      border: 1px solid #9a9a9a;
+    }
+  }
+}

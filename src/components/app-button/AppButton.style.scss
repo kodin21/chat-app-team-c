@@ -1,0 +1,19 @@
+.app-button {
+  border: none;
+  font-family: inherit;
+  font-size: 2rem;
+  padding: 0.5rem 2rem;
+  transition: 0.1s;
+
+  &--retro {
+    background-color: #bdbdbd;
+    border-left: 1px solid #dedede;
+    border-top: 1px solid #dedede;
+    border-right: 1px solid #7b7b7b;
+    border-bottom: 1px solid #7b7b7b;
+    box-shadow: 1px 1px 0 0.5px #000, -0px 0px 0 1px #fff;
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+}

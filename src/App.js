@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import { useTheme } from "./context/ThemeContext";
+import { Switch, Route, Redirect } from "react-router-dom";
+
+import "./App.scss";
+import Login from "./pages/login/Login";
+import Rooms from "./pages/rooms/Rooms";
 
 function App() {
+  //Theme Context
+  const { appTheme } = useTheme();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`app app__background--${appTheme}`}>
+      <Switch>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/rooms">
+          <Rooms />
+        </Route>
+        <Route>
+          <Redirect to="/login" />
+        </Route>
+      </Switch>
     </div>
   );
 }
