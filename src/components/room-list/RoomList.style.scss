@@ -3,6 +3,7 @@
   grid-column: roomlist-start / roomlist-end;
   display: flex;
   flex-direction: column;
+  position: relative;
 
   &__heading {
     font-size: 2rem;
@@ -20,5 +21,23 @@
   &--retro {
     border: 2px solid #7b7b7b;
     background-color: white;
+  }
+}
+
+.room-box {
+  list-style: none;
+  font-size: 1.6rem;
+
+  padding: 0.2rem 0;
+  padding-left: 2rem;
+  cursor: pointer;
+  &__link {
+    text-decoration: none;
+    color: black;
+  }
+  &:hover,
+  &:hover &__link {
+    background-color: #4220a3;
+    color: white;
   }
 }

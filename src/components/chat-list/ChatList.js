@@ -8,7 +8,7 @@ export default function ChatList({ chatList }) {
   const { appTheme } = useTheme();
   return (
     <div className={`chat-list chat-list--${appTheme}`}>
-      <Loading />
+      {/* <Loading /> */}
     </div>
   );
 }
