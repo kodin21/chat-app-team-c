@@ -15,7 +15,10 @@ function App() {
         <Route path="/login">
           <Login />
         </Route>
-        <Route path="/rooms">
+        <Route path="/rooms/:id">
+          <Rooms />
+        </Route>
+        <Route exact path="/rooms/">
           <Rooms />
         </Route>
         <Route>

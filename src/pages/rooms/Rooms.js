@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AppWindow from "../../components/app-window/AppWindow";
 import languages_data from "../../utils/language";
 import { useTheme } from "../../context/ThemeContext";
@@ -13,19 +13,15 @@ import Modal from "../modal/Modal";
 
 export default function Rooms() {
   const { language } = useTheme();
-
-  const handleChatSend = (event) => {
-    event.preventDefault();
-    alert("HEY");
-  };
+  const { id } = useParams();
 
   return (
     <div className="rooms-page">
       <AppWindow title={languages_data[language].rooms}>
         <div className="rooms-page__content">
           <RoomList />
-          <ChatList />
-          <ChatInput onSubmitFunction={handleChatSend} />
+          {id ? <ChatList chatID={id} /> : <h1>BOS ROOM TEST</h1>}
+          <ChatInput />
         </div>
       </AppWindow>
       {/* <Modal /> */}

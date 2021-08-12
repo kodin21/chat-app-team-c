@@ -21,18 +21,12 @@ export default function RoomList() {
   const getRoomNames = (value) => {
     if (value) {
       return value.docs.map((doc) => (
-        <RoomBox name={doc.data().name} id={doc.id} />
+        <RoomBox key={doc.id} name={doc.data().name} id={doc.id} />
       ));
     } else {
       return "";
     }
   };
-
-  useEffect(() => {
-    if (value) {
-      console.log(getRoomNames(value));
-    }
-  }, [value]);
 
   return (
     <div className={`room-list room-list--${appTheme}`}>
