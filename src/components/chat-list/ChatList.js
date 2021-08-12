@@ -11,14 +11,20 @@ export default function ChatList({ chatID }) {
   const [messages, setMessages] = useState([]);
 
   const [value, loading, error] = useDocument(
-    database.collection(`room-list/${chatID}/messages`)
+    database.collection(`room-list/${chatID}/messages`).orderBy("sentAt")
   );
 
-  useEffect(() => {
+  const getChatList = () => {
     if (value) {
-      console.log(value.docs.map((doc) => doc.data()));
+      return value.docs.map((doc) => (
+        <p>{`< ${doc.data().sendUser} > ${doc.data().text}`}</p>
+      ));
     }
-  }, [value]);
+  };
 
-  return <div className={`chat-list chat-list--${appTheme}`}></div>;
+  return (
+    <div className={`chat-list chat-list--${appTheme}`}>
+      {loading ? <Loading /> : getChatList()}
+    </div>
+  );
 }
