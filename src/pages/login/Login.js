@@ -7,15 +7,16 @@ import { useTheme } from "../../context/ThemeContext";
 import languages_data from "../../utils/language";
 
 import { database } from "../../firebase/firebaseUtils";
-import useLocalStorage from "../../hooks/useLocalStorage";
 
 import "../Pages.style.scss";
+import { useUser } from "../../context/UserContext";
 
 export default function Login() {
   const { language } = useTheme();
   const history = useHistory();
   const [userName, setUserName] = useState("");
-  const [userStorage, setUserStorage] = useLocalStorage("user", "");
+  const { userStorage, setUserStorage } = useUser();
+
   const handleUserRegister = (event) => {
     event.preventDefault();
     if (!userName.trim()) {
@@ -30,9 +31,11 @@ export default function Login() {
       });
     }
   };
-  const handleInput = (e) => {
-    setUserName(e.target.value);
+
+  const handleInput = (event) => {
+    setUserName(event.target.value);
   };
+
   return userStorage ? (
     <Redirect to="/rooms" />
   ) : (
