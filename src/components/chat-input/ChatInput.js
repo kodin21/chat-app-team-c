@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { useUser } from "../../context/UserContext";
-import firebase, { database } from "../../firebase/firebaseUtils";
+import { database } from "../../firebase/firebaseUtils";
 
 import "./ChatInput.style.scss";
 
