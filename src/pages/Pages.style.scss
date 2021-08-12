@@ -3,6 +3,34 @@
   height: 25rem;
 }
 .rooms-page {
-  width: 100rem;
+  width: 110rem;
   height: 70rem;
+  &__content {
+    width: 100%;
+    height: 100%;
+    padding: 1rem 2rem;
+
+    display: grid;
+    grid-template-columns: [roomlist-start] 21rem [roomlist-end chat-start]1fr [chat-end];
+    grid-template-rows: [chatlist-start roomlist-start] 55rem [chatlist-end chatinput-start] 5rem [chatinput-end roomlist-end];
+
+    align-content: center;
+    gap: 1rem;
+  }
+}
+.modal-page {
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+  &__window {
+    width: 45rem;
+    height: 25rem;
+  }
+
+  background-color: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

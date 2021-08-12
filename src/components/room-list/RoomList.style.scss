@@ -1,0 +1,24 @@
+.room-list {
+  grid-row: roomlist-start / roomlist-end;
+  grid-column: roomlist-start / roomlist-end;
+  display: flex;
+  flex-direction: column;
+
+  &__heading {
+    font-size: 2rem;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+  }
+  &__buttons {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  &--retro {
+    border: 2px solid #7b7b7b;
+    background-color: white;
+  }
+}

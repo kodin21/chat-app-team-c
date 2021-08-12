@@ -4,16 +4,31 @@ import languages_data from "../../utils/language";
 import { useTheme } from "../../context/ThemeContext";
 import { useParams } from "react-router";
 
+import RoomList from "../../components/room-list/RoomList";
+import ChatList from "../../components/chat-list/ChatList";
+
+import "../Pages.style.scss";
+import ChatInput from "../../components/chat-input/ChatInput";
+import Modal from "../modal/Modal";
+
 export default function Rooms() {
   const { language } = useTheme();
-  const params = useParams();
 
-  console.log(params);
+  const handleChatSend = (event) => {
+    event.preventDefault();
+    alert("HEY");
+  };
+
   return (
     <div className="rooms-page">
       <AppWindow title={languages_data[language].rooms}>
-        <div className="rooms-page__content"></div>
+        <div className="rooms-page__content">
+          <RoomList />
+          <ChatList />
+          <ChatInput onSubmitFunction={handleChatSend} />
+        </div>
       </AppWindow>
+      {/* <Modal /> */}
     </div>
   );
 }

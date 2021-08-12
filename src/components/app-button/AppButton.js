@@ -3,10 +3,16 @@ import { useTheme } from "../../context/ThemeContext";
 
 import "./AppButton.style.scss";
 
-export default function AppButton({ text }) {
+export default function AppButton({ text, onClickFunction, type }) {
   const { appTheme } = useTheme();
 
   return (
-    <button className={`app-button app-button--${appTheme}`}>{text}</button>
+    <button
+      type={type}
+      className={`app-button app-button--${appTheme}`}
+      onClick={onClickFunction}
+    >
+      {text}
+    </button>
   );
 }
