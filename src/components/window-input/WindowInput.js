@@ -11,6 +11,7 @@ export default function WindowInput({
   onSubmitFunction,
   labelText,
   buttonText,
+  handleChange,
 }) {
   const { appTheme } = useTheme();
 
@@ -19,6 +20,7 @@ export default function WindowInput({
       <label className="window-form__label">{labelText}</label>
       <input
         className={`window-form__input window-form__input--${appTheme}`}
+        onChange={handleChange}
       ></input>
       <AppButton text={buttonText} />
     </form>
