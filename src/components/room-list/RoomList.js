@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { database } from "../../firebase/firebaseUtils";
 

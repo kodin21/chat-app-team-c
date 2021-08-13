@@ -1,18 +1,27 @@
-import React, { useEffect, useRef, useState } from "react";
-import { useCollection, useDocument } from "react-firebase-hooks/firestore";
+import React, { useEffect, useRef } from "react";
+import { useDocument } from "react-firebase-hooks/firestore";
 import { useTheme } from "../../context/ThemeContext";
-import { database } from "../../firebase/firebaseUtils";
+import { useUser } from "../../context/UserContext";
+import { database, realTime } from "../../firebase/firebaseUtils";
 import Loading from "../loading/Loading";
-
 import "./ChatList.style.scss";
 
 export default function ChatList({ chatID }) {
   const { appTheme } = useTheme();
   const chatListRef = useRef(null);
+  const { userStorage } = useUser();
 
   const [value, loading, error] = useDocument(
     database.collection(`room-list/${chatID}/messages`).orderBy("sentAt")
   );
+
+  // add user to room at real time database
+  useEffect(() => {
+    const connectRef = realTime.ref(`/rooms/${chatID}/${userStorage.id}`);
+    connectRef.set(userStorage);
+    connectRef.onDisconnect().remove();
+    return () => connectRef.remove();
+  }, [chatID]);
 
   const getChatList = () => {
     if (value) {
