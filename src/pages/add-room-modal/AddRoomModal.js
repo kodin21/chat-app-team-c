@@ -1,14 +1,17 @@
-import React, { useState } from "react";
-import Modal from "../modal/Modal";
+import { useState } from "react";
+import Modal from "../../components/modal/Modal";
 import WindowInput from "../../components/window-input/WindowInput";
 import AppWindow from "../../components/app-window/AppWindow";
-import languages_data from "../../utils/language";
+
 import { useTheme } from "../../context/ThemeContext";
 import { database } from "../../firebase/firebaseUtils";
+
+import languages_data from "../../utils/language";
 
 const AddRoomModal = ({ toggleModal }) => {
   const { language } = useTheme();
   const [roomName, setRoomName] = useState("");
+
   // Get language data
   const { create_new_room, create, room_name } = languages_data[language];
 
