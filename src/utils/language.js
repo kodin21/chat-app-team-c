@@ -2,6 +2,7 @@ const languages_data = {
   en: {
     greeting: "Welcome to the Chat App Thing!",
     choose_nickname: "Choose your nickname",
+    username_input_empty_error: "Please enter a username.",
     join: "Join",
     users: "user(s)",
     rooms: "Rooms",
@@ -16,6 +17,7 @@ const languages_data = {
   tr: {
     greeting: "Chat Uygulaması Gibi Şeye Hoşgeldiniz!",
     choose_nickname: "Kullanıcı adı seçin",
+    username_input_empty_error: "Lütfen bir kullanıcı adı giriniz",
     join: "Katıl",
     users: "kullanıcı(lar)",
     rooms: "Odalar",
