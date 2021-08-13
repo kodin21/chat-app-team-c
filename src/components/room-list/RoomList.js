@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
-import { database } from "../../firebase/firebaseUtils";
+import { database, realTime } from "../../firebase/firebaseUtils";
 
 import languages_data from "../../utils/language";
 import AppButton from "../app-button/AppButton";
@@ -10,13 +10,31 @@ import { useCollection } from "react-firebase-hooks/firestore";
 import "./RoomList.style.scss";
 import RoomBox from "./RoomBox";
 import Loading from "../loading/Loading";
+import { useList } from "react-firebase-hooks/database";
 
 export default function RoomList({ toggleModal, setTitle }) {
   const { appTheme, language } = useTheme();
+  const [roomsData, setRoomsData] = useState([]);
 
   const [value, loading, error] = useCollection(
     database.collection("room-list")
   );
+
+  const [snapshot, realtimeLoading, realtimeError] = useList(
+    realTime.ref(`rooms`)
+  );
+
+  useEffect(() => {
+    setRoomsData(
+      snapshot.map((doc) => ({
+        [doc.key]: {
+          data: doc.val(),
+          count: Object.keys(doc.val()).length,
+        },
+      }))
+    );
+    console.log(roomsData[0]);
+  }, [snapshot]);
 
   //Get language data
   const { create_room, rooms } = languages_data[language];
@@ -29,6 +47,7 @@ export default function RoomList({ toggleModal, setTitle }) {
           name={doc.data().name}
           id={doc.id}
           setTitle={setTitle}
+          // userCount={roomsData}
         />
       ));
     } else {

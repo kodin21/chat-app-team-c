@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useTheme } from "../../context/ThemeContext";
 
-export default function RoomBox({ name, id, setTitle }) {
+export default function RoomBox({ name, id, setTitle, userCount }) {
   const { appTheme } = useTheme();
 
   return (

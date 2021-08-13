@@ -1,5 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { useDocument } from "react-firebase-hooks/firestore";
+import { useList } from "react-firebase-hooks/database";
+
 import { useTheme } from "../../context/ThemeContext";
 import { useUser } from "../../context/UserContext";
 import { database, realTime } from "../../firebase/firebaseUtils";
@@ -33,7 +35,7 @@ export default function ChatList({ chatID }) {
             <span
               className={`chat-list__date chat-list__date--${appTheme}`}
             >{`<${userName} - ${sentAt.toDate().toLocaleString()} >`}</span>
-            <span style={{ paddingLeft: "1rem", color: messageColor }}>
+            <span style={{ paddingLeft: "1rem", color: `#${messageColor}` }}>
               {text}
             </span>
           </p>
