@@ -13,7 +13,9 @@ export default function RoomBox({ name, id, setTitle, userCount }) {
         setTitle(name);
       }}
     >
-      <li className={`room-box room-box--${appTheme}`}>&rarr;{name}</li>
+      <li className={`room-box room-box--${appTheme}`}>
+        &rarr;{name} - {userCount}
+      </li>
     </Link>
   );
 }

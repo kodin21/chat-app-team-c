@@ -14,7 +14,7 @@ import { useList } from "react-firebase-hooks/database";
 
 export default function RoomList({ toggleModal, setTitle }) {
   const { appTheme, language } = useTheme();
-  const [roomsData, setRoomsData] = useState([]);
+  const [roomsData, setRoomsData] = useState({});
 
   const [value, loading, error] = useCollection(
     database.collection("room-list")
@@ -26,14 +26,17 @@ export default function RoomList({ toggleModal, setTitle }) {
 
   useEffect(() => {
     setRoomsData(
-      snapshot.map((doc) => ({
-        [doc.key]: {
-          data: doc.val(),
-          count: Object.keys(doc.val()).length,
-        },
-      }))
+      snapshot.reduce(
+        (prevDoc, currentDoc) => ({
+          ...prevDoc,
+          [currentDoc.key]: {
+            data: currentDoc.val(),
+            count: Object.keys(currentDoc.val()).length,
+          },
+        }),
+        {}
+      )
     );
-    console.log(roomsData[0]);
   }, [snapshot]);
 
   //Get language data
@@ -47,7 +50,7 @@ export default function RoomList({ toggleModal, setTitle }) {
           name={doc.data().name}
           id={doc.id}
           setTitle={setTitle}
-          // userCount={roomsData}
+          userCount={roomsData[doc.id] ? roomsData[doc.id].count : 0}
         />
       ));
     } else {
