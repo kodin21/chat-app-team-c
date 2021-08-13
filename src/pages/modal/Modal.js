@@ -1,9 +1,6 @@
-import React, { useRef } from "react";
-
-import { useTheme } from "../../context/ThemeContext";
+import { useRef } from "react";
 
 export default function Modal({ children, toggle }) {
-  const { language } = useTheme();
   const modalRef = useRef();
 
   const handleToggle = (event) => {
