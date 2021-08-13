@@ -14,6 +14,8 @@ import { useUser } from "../../context/UserContext";
 import { useDocumentOnce } from "react-firebase-hooks/firestore";
 import { database } from "../../firebase/firebaseUtils";
 import { useEffect, useState } from "react";
+import Modal from "../modal/Modal";
+import AddRoomModal from "../add-room-modal/AddRoomModal";
 
 export default function Rooms() {
   const { language } = useTheme();
@@ -54,7 +56,7 @@ export default function Rooms() {
             <ChatInput chatID={id} />
           </div>
         </AppWindow>
-        {/* <Modal /> */}
+        <AddRoomModal />
       </div>
     )
   );
