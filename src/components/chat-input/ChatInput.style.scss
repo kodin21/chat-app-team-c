@@ -9,7 +9,10 @@
     border: none;
     font-family: inherit;
     font-size: 1.7rem;
-    padding-left: 1rem;
+
+    padding: 0.5rem 5rem 0.5rem 2rem;
+
+    overflow-y: scroll;
     &--retro {
       border: 2px solid #7b7b7b;
     }

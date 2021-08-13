@@ -12,17 +12,17 @@ function App() {
   return (
     <div className={`app app__background--${appTheme}`}>
       <Switch>
-        <Route path="/login">
+        <Route exact path="/login">
           <Login />
         </Route>
-        <Route path="/rooms/:id">
+        <Route exact path="/rooms/:id">
           <Rooms />
         </Route>
         <Route exact path="/rooms/">
           <Rooms />
         </Route>
-        <Route>
-          <Redirect to="/login" />
+        <Route path="*">
+          <Login />
         </Route>
       </Switch>
     </div>
