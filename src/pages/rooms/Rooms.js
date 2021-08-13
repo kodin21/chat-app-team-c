@@ -1,29 +1,29 @@
-import AppWindow from "../../components/app-window/AppWindow";
-import languages_data from "../../utils/language";
-import { useTheme } from "../../context/ThemeContext";
-import { useParams } from "react-router";
+import { useEffect, useState } from "react";
+import { Redirect, useHistory, useParams } from "react-router-dom";
 
+import AddRoomModal from "../add-room-modal/AddRoomModal";
 import RoomList from "../../components/room-list/RoomList";
 import ChatList from "../../components/chat-list/ChatList";
+import ChatInput from "../../components/chat-input/ChatInput";
+import AppWindow from "../../components/app-window/AppWindow";
+
+import { useTheme } from "../../context/ThemeContext";
+
+import languages_data from "../../utils/language";
+import { database } from "../../firebase/firebaseUtils";
 
 import "../Pages.style.scss";
-import ChatInput from "../../components/chat-input/ChatInput";
-
-import { Redirect, useHistory } from "react-router-dom";
-import { useUser } from "../../context/UserContext";
-import { useDocumentOnce } from "react-firebase-hooks/firestore";
-import { database } from "../../firebase/firebaseUtils";
-import { useEffect, useState } from "react";
-import Modal from "../modal/Modal";
-import AddRoomModal from "../add-room-modal/AddRoomModal";
 
 export default function Rooms() {
   const { language } = useTheme();
-  const { userStorage } = useUser();
   const history = useHistory();
   const { id } = useParams();
 
   const [isRoomLoaded, setRoomLoaded] = useState(false);
+  const [isRoomModal, setRoomModal] = useState(false);
+
+  // Get room string from selected language
+  const { rooms } = languages_data[language];
 
   const isRoomExists = () => {
     if (id) {
@@ -42,21 +42,20 @@ export default function Rooms() {
 
   useEffect(() => {
     isRoomExists();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [id]);
 
-  return !userStorage ? (
-    <Redirect to="/login" />
-  ) : (
+  return (
     isRoomLoaded && (
       <div className="rooms-page">
-        <AppWindow title={languages_data[language].rooms}>
+        <AppWindow title={rooms}>
           <div className="rooms-page__content">
-            <RoomList />
+            <RoomList toggleModal={setRoomModal} />
             {id ? <ChatList chatID={id} /> : <h1>BOS ROOM TEST</h1>}
             <ChatInput chatID={id} />
           </div>
         </AppWindow>
-        <AddRoomModal />
+        {isRoomModal && <AddRoomModal toggleModal={setRoomModal} />}
       </div>
     )
   );

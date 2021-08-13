@@ -1,32 +1,30 @@
 import { useState } from "react";
-import { Redirect, useHistory } from "react-router-dom";
-import AppWindow from "../../components/app-window/AppWindow";
-import WindowInput from "../../components/window-input/WindowInput";
-
-import { useTheme } from "../../context/ThemeContext";
-import languages_data from "../../utils/language";
-
+import { useHistory } from "react-router-dom";
 import { database } from "../../firebase/firebaseUtils";
 
-import "../Pages.style.scss";
 import { useUser } from "../../context/UserContext";
+import LoginBox from "./LoginBox";
+
+import "../Pages.style.scss";
 
 export default function Login() {
-  const { language } = useTheme();
   const history = useHistory();
   const [userName, setUserName] = useState("");
-  const { userStorage, setUserStorage } = useUser();
+  const { setUserStorage } = useUser();
 
   const handleUserRegister = (event) => {
     event.preventDefault();
+
     if (!userName.trim()) {
-      alert("Please Fiil the Value");
+      alert("Please Fill the Value");
     } else {
-      alert(userName);
       const userConfig = { name: userName, color: "#7b7b7b" };
       const userRef = database.collection("users");
+
+      //Create a new user
       userRef.add(userConfig).then((docRef) => {
         setUserStorage({ id: docRef.id, ...userConfig });
+        //Navigate to rooms page
         history.replace("/rooms");
       });
     }
@@ -36,18 +34,9 @@ export default function Login() {
     setUserName(event.target.value);
   };
 
-  return userStorage ? (
-    <Redirect to="/rooms" />
-  ) : (
+  return (
     <div className="login-page">
-      <AppWindow title={languages_data[language].greeting}>
-        <WindowInput
-          onSubmitFunction={handleUserRegister}
-          labelText={languages_data[language].choose_nickname}
-          buttonText={languages_data[language].join}
-          handleChange={handleInput}
-        />
-      </AppWindow>
+      <LoginBox {...{ handleUserRegister, userName, handleInput }} />
     </div>
   );
 }

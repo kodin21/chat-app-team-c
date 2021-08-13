@@ -11,7 +11,7 @@ import "./RoomList.style.scss";
 import RoomBox from "./RoomBox";
 import Loading from "../loading/Loading";
 
-export default function RoomList() {
+export default function RoomList({ toggleModal }) {
   const { appTheme, language } = useTheme();
 
   const [value, loading, error] = useCollection(
@@ -39,7 +39,12 @@ export default function RoomList() {
         <ul className="room-list__container">{getRoomNames(value)}</ul>
       )}
       <div className="room-list__buttons">
-        <AppButton text={languages_data[language].create_room} />
+        <AppButton
+          onClickFunction={() => {
+            toggleModal((prevToggleState) => !prevToggleState);
+          }}
+          text={languages_data[language].create_room}
+        />
       </div>
     </div>
   );

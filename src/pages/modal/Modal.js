@@ -1,14 +1,20 @@
-import React from "react";
-import AppWindow from "../../components/app-window/AppWindow";
-import WindowInput from "../../components/window-input/WindowInput";
-import { useTheme } from "../../context/ThemeContext";
-import languages_data from "../../utils/language";
+import React, { useRef } from "react";
 
-export default function Modal({ children }) {
+import { useTheme } from "../../context/ThemeContext";
+
+export default function Modal({ children, toggle }) {
   const { language } = useTheme();
+  const modalRef = useRef();
+
+  const handleToggle = (event) => {
+    console.log(modalRef.current, event.target);
+    if (event.target === modalRef.current) {
+      toggle((prevToggleState) => !prevToggleState);
+    }
+  };
 
   return (
-    <div className="modal-page">
+    <div ref={modalRef} onClick={handleToggle} className="modal-page">
       <div className="modal-page__window">{children}</div>
     </div>
   );

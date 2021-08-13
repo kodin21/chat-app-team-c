@@ -16,11 +16,11 @@ export default function ChatList({ chatID }) {
 
   const getChatList = () => {
     if (value) {
-      return value.docs.map((doc) => {
+      return value.docs.map((doc, index) => {
         const { userName, messageColor, sentAt, text } = doc.data();
 
         return (
-          <p>
+          <p key={index}>
             {`<${userName}> < ${sentAt.toDate().toLocaleString()} >`}
             <span style={{ paddingLeft: "1rem", color: messageColor }}>
               {text}
