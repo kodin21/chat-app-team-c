@@ -22,7 +22,9 @@ export default function WindowInput({
 
   return (
     <form className="window-form" onSubmit={onSubmitFunction}>
-      <label className="window-form__label">{labelText}</label>
+      <label className={`window-form__label window-form__label--${appTheme}`}>
+        {labelText}
+      </label>
       <input
         value={inputValue}
         className={`window-form__input window-form__input--${appTheme}`}

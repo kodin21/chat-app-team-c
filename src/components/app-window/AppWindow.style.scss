@@ -8,7 +8,9 @@
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
 
   &__bar {
-    font-size: 2.1rem;
+    font-size: 2rem;
+    padding-left: 1rem;
+    color: white;
     &--retro {
       background: linear-gradient(
         90deg,
@@ -18,9 +20,15 @@
       );
       border: 2px solid #ffffff;
       box-sizing: border-box;
+    }
+    &--modern {
+      display: flex;
+      align-items: center;
 
-      color: white;
-      padding-left: 1rem;
+      border-radius: 3px 3px 0 0;
+      background-color: #251c3b;
+
+      font-weight: 500;
     }
   }
   &__content {
@@ -30,6 +38,10 @@
 
     &--retro {
       background-color: #bdbdbd;
+    }
+    &--modern {
+      background-color: #efeded;
+      border-radius: 0 0 3px 3px;
     }
   }
 }

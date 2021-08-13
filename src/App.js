@@ -40,9 +40,7 @@ function App() {
         <Route exact path="/rooms/">
           {redirectUser(!userStorage, "rooms", "login")}
         </Route>
-        <Route path="*">
-          <Login />
-        </Route>
+        <Route path="*">{redirectUser(userStorage, "login", "rooms")}</Route>
       </Switch>
     </div>
   );

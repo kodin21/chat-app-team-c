@@ -11,17 +11,25 @@ import "./RoomList.style.scss";
 import RoomBox from "./RoomBox";
 import Loading from "../loading/Loading";
 
-export default function RoomList({ toggleModal }) {
+export default function RoomList({ toggleModal, setTitle }) {
   const { appTheme, language } = useTheme();
 
   const [value, loading, error] = useCollection(
     database.collection("room-list")
   );
 
+  //Get language data
+  const { create_room, rooms } = languages_data[language];
+
   const getRoomNames = (value) => {
     if (value) {
       return value.docs.map((doc) => (
-        <RoomBox key={doc.id} name={doc.data().name} id={doc.id} />
+        <RoomBox
+          key={doc.id}
+          name={doc.data().name}
+          id={doc.id}
+          setTitle={setTitle}
+        />
       ));
     } else {
       return "";
@@ -30,9 +38,7 @@ export default function RoomList({ toggleModal }) {
 
   return (
     <div className={`room-list room-list--${appTheme}`}>
-      <h2 className="room-list__heading">
-        -- {languages_data[language].rooms} --
-      </h2>
+      <h2 className="room-list__heading">-- {rooms} --</h2>
       {loading ? (
         <Loading />
       ) : (
@@ -43,7 +49,7 @@ export default function RoomList({ toggleModal }) {
           onClickFunction={() => {
             toggleModal((prevToggleState) => !prevToggleState);
           }}
-          text={languages_data[language].create_room}
+          text={create_room}
         />
       </div>
     </div>

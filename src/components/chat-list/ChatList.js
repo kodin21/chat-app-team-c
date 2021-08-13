@@ -21,7 +21,9 @@ export default function ChatList({ chatID }) {
 
         return (
           <p key={index}>
-            {`<${userName}> < ${sentAt.toDate().toLocaleString()} >`}
+            <span
+              className={`chat-list__date chat-list__date--${appTheme}`}
+            >{`<${userName} - ${sentAt.toDate().toLocaleString()} >`}</span>
             <span style={{ paddingLeft: "1rem", color: messageColor }}>
               {text}
             </span>

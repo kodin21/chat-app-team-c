@@ -22,22 +22,45 @@
     border: 2px solid #7b7b7b;
     background-color: white;
   }
+  &--modern {
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 3px;
+  }
 }
 
 .room-box {
   list-style: none;
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 
-  padding: 0.2rem 0;
-  padding-left: 0rem;
+  padding: 0.7rem 0 0.7rem 0.5rem;
+  text-align: left;
   cursor: pointer;
+
+  &--retro {
+    &:hover {
+      background-color: #4220a3;
+      color: white;
+    }
+  }
+  &--modern {
+    background-color: #4220a3;
+    margin: 0.1rem 0;
+    border-radius: 2px;
+    color: white;
+    font-weight: 500;
+    &:hover {
+      background-color: #fcc82e;
+      color: black;
+    }
+  }
+
   &__link {
     text-decoration: none;
-    color: black;
-  }
-  &:hover,
-  &:hover &__link {
-    background-color: #4220a3;
-    color: white;
+
+    &--retro {
+      color: black;
+    }
   }
 }
