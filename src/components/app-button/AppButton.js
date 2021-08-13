@@ -3,7 +3,7 @@ import { useTheme } from "../../context/ThemeContext";
 
 import "./AppButton.style.scss";
 
-export default function AppButton({ text, onClickFunction, type }) {
+export default function AppButton({ text, onClickFunction, type = "button" }) {
   const { appTheme } = useTheme();
 
   return (

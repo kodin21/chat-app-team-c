@@ -30,7 +30,7 @@ export default function WindowInput({
         className={`window-form__input window-form__input--${appTheme}`}
         onChange={onChangeFunction}
       ></input>
-      <AppButton text={buttonText} />
+      <AppButton text={buttonText} type="submit" />
     </form>
   );
 }

@@ -10,14 +10,20 @@ import AppWindow from "../../components/app-window/AppWindow";
 import { database } from "../../firebase/firebaseUtils";
 
 import "../Pages.style.scss";
+import AppButton from "../../components/app-button/AppButton";
+import languages_data from "../../utils/language";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function Rooms() {
   const history = useHistory();
   const { id } = useParams();
+  const { language, changeTheme, changeLanguage } = useTheme();
 
   const [isRoomLoaded, setRoomLoaded] = useState(false);
   const [isRoomModal, setRoomModal] = useState(false);
   const [roomName, setRoomName] = useState("Room");
+
+  const { change_language, change_theme } = languages_data[language];
 
   const isRoomExists = () => {
     if (id) {
@@ -54,6 +60,10 @@ export default function Rooms() {
           </div>
         </AppWindow>
         {isRoomModal && <AddRoomModal toggleModal={setRoomModal} />}
+        <div className="rooms-page__buttons">
+          <AppButton text={change_language} onClickFunction={changeLanguage} />
+          <AppButton text={change_theme} onClickFunction={changeTheme} />
+        </div>
       </div>
     )
   );

@@ -2,7 +2,7 @@
   border: none;
   font-family: inherit;
   font-size: 2rem;
-  padding: 0.5rem 2rem;
+  padding: 0.8rem 2rem;
   transition: 0.1s;
   cursor: pointer;
 
@@ -15,7 +15,8 @@
     box-shadow: 1px 1px 0 0.5px #000, -0px 0px 0 1px #fff;
   }
   &--modern {
-    background-color: #fcc82e;
+    background-color: #4220a3;
+    color: white;
     border-radius: 2px;
     font-size: 1.8rem;
     font-weight: 600;

@@ -17,6 +17,13 @@
     align-content: center;
     gap: 1rem;
   }
+  &__buttons {
+    margin-top: 5rem;
+    display: grid;
+    grid-template-columns: repeat(2, max-content);
+    column-gap: 1rem;
+    justify-content: center;
+  }
 }
 .modal-page {
   height: 100vh;

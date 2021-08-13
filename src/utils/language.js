@@ -13,6 +13,8 @@ const languages_data = {
     create: "Create",
     create_pm_room: "Create a Private Message Room",
     user_name: "User name",
+    change_theme: "Change Theme",
+    change_language: "Change Language",
   },
   tr: {
     greeting: "Chat Uygulaması Gibi Şeye Hoşgeldiniz!",
@@ -28,6 +30,8 @@ const languages_data = {
     create: "Oluştur",
     create_pm_room: "Özel mesaj odası oluştur",
     user_name: "Kullanıcı adı",
+    change_theme: "Tema Degistir",
+    change_language: "Dil Değiştir",
   },
 };
 

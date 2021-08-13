@@ -11,7 +11,14 @@ function ThemeProvider({ children }) {
   const [appTheme, setTheme] = useLocalStorage("theme", "retro");
   const [language, setLanguage] = useLocalStorage("language", "en");
 
-  const value = { appTheme, setTheme, language, setLanguage };
+  const changeTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "retro" ? "modern" : "retro"));
+  };
+  const changeLanguage = () => {
+    setLanguage((prevLanguage) => (prevLanguage === "en" ? "tr" : "en"));
+  };
+
+  const value = { appTheme, changeTheme, language, changeLanguage };
 
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>
