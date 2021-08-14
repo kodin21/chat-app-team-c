@@ -14,13 +14,16 @@ import "../Pages.style.scss";
 import AppButton from "../../components/app-button/AppButton";
 import languages_data from "../../utils/language";
 import { useTheme } from "../../context/ThemeContext";
+import { useUser } from "../../context/UserContext";
 
 export default function Rooms() {
   const history = useHistory();
   const { id } = useParams();
+  const { userLogout } = useUser();
 
   const { language, changeTheme, changeLanguage } = useTheme();
-  const { change_language, change_theme, room } = languages_data[language];
+  const { change_language, change_theme, room, logout } =
+    languages_data[language];
 
   const [isRoomLoaded, setRoomLoaded] = useState(false);
   const [isRoomModal, setRoomModal] = useState(false);
@@ -56,6 +59,7 @@ export default function Rooms() {
         <div className="rooms-page__buttons">
           <AppButton text={change_language} onClickFunction={changeLanguage} />
           <AppButton text={change_theme} onClickFunction={changeTheme} />
+          <AppButton text={logout} onClickFunction={userLogout} />
         </div>
         <AppWindow title={roomName}>
           <div className="rooms-page__content">
