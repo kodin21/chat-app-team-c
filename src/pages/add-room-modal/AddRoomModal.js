@@ -14,7 +14,7 @@ const AddRoomModal = ({ toggleModal }) => {
 
   // Get language data
   const { create_new_room, create, room_name } = languages_data[language];
-
+  // room create function
   const createRoom = (event) => {
     event.preventDefault();
     if (roomName.trim()) {
