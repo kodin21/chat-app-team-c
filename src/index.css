@@ -27,9 +27,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+#root {
+  min-height: 100vh;
+}
 
 @media only screen and (max-width: 87em) {
   html {
     font-size: 55%;
+  }
+}
+@media only screen and (max-width: 59em) {
+  html {
+    font-size: 45%;
   }
 }
