@@ -1,4 +1,7 @@
-## Chat APP
+
+<video src="https://user-images.githubusercontent.com/58252790/129451307-49c6cb06-70bf-487a-aef5-4b67ce42c337.mp4" width="1280" height="720" controls preload autoplay></video>
+
+# Chat APP
 
 Birden çok odası bulunan, herkesin oda ekleyebildiği, herkesin anonim olarak herhangi bir odaya katılıp mesajlaşabildiği bir live chat app yapmanızı bekliyorum.
 Çok temelde chat appimiz üç ekrandan oluşuyor.
