@@ -16,7 +16,9 @@ export default function RoomList({ toggleModal, setTitle }) {
   const { appTheme, language } = useTheme();
   const [roomsData, setRoomsData] = useState({});
 
-  const [value, loading] = useCollection(database.collection("room-list"));
+  const [value, loading] = useCollection(
+    database.collection("room-list").orderBy("createdAt")
+  );
 
   const [snapshot] = useList(realTime.ref(`rooms`));
 

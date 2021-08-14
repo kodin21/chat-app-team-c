@@ -22,6 +22,7 @@ const AddRoomModal = ({ toggleModal }) => {
         .collection(`room-list`)
         .add({
           name: roomName,
+          createdAt: new Date(),
         })
         .then(() => {
           toggleModal((prevToggleState) => !prevToggleState);
