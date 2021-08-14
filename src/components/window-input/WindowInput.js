@@ -16,10 +16,6 @@ export default function WindowInput({
 }) {
   const { appTheme } = useTheme();
 
-  useEffect(() => {
-    console.log(inputValue);
-  }, [inputValue]);
-
   return (
     <form className="window-form" onSubmit={onSubmitFunction}>
       <label className={`window-form__label window-form__label--${appTheme}`}>
