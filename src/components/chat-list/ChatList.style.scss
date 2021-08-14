@@ -25,6 +25,32 @@
       font-weight: 600;
     }
   }
+  &__greet {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    h1 {
+      font-size: 4rem;
+    }
+    p {
+      font-size: 1.8rem;
+    }
+  }
+  &__greet-img {
+    width: 15rem;
+    height: 15rem;
+    background-size: cover;
+    background-image: url("../../assets/img/greet.gif");
+  }
+}
+.github-link {
+  width: 3rem;
+  height: 3rem;
+  display: block;
+  background-image: url("https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg");
+  background-size: cover;
+  margin: 2rem 0;
 }
 
 .empty-scroll-box {

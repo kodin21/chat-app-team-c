@@ -31,6 +31,7 @@ export default function ChatInput({ chatID }) {
   return (
     <form className="chat__form" onSubmit={sendMessage}>
       <input
+        disabled={chatID ? false : true}
         value={msg}
         onChange={handleChatChange}
         type="text"

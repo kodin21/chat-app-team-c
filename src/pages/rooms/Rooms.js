@@ -4,6 +4,7 @@ import { useHistory, useParams } from "react-router-dom";
 import AddRoomModal from "../add-room-modal/AddRoomModal";
 import RoomList from "../../components/room-list/RoomList";
 import ChatList from "../../components/chat-list/ChatList";
+import ChatGreet from "../../components/chat-list/ChatGreet";
 import ChatInput from "../../components/chat-input/ChatInput";
 import AppWindow from "../../components/app-window/AppWindow";
 
@@ -59,7 +60,7 @@ export default function Rooms() {
         <AppWindow title={roomName}>
           <div className="rooms-page__content">
             <RoomList toggleModal={setRoomModal} setTitle={setRoomName} />
-            {id ? <ChatList chatID={id} /> : <h1>BOS ROOM TEST</h1>}
+            {id ? <ChatList chatID={id} /> : <ChatGreet />}
             <ChatInput chatID={id} />
           </div>
         </AppWindow>

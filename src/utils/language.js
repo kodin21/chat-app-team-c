@@ -16,6 +16,8 @@ const languages_data = {
     user_name: "User name",
     change_theme: "Change Theme",
     change_language: "Change Language",
+    chat_greet_hello: "Hello!",
+    chat_greet_rooms: "You can connect to rooms using the room list.",
   },
   tr: {
     greeting: "Chat Uygulaması Gibi Şeye Hoşgeldiniz!",
@@ -34,6 +36,8 @@ const languages_data = {
     user_name: "Kullanıcı adı",
     change_theme: "Tema Degistir",
     change_language: "Dil Değiştir",
+    chat_greet_hello: "Merhaba!",
+    chat_greet_rooms: "Oda listesini kullanarak odalara bağlanabilirsiniz. ",
   },
 };
 
