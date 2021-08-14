@@ -1,6 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import { useDocument } from "react-firebase-hooks/firestore";
-import { useList } from "react-firebase-hooks/database";
 
 import { useTheme } from "../../context/ThemeContext";
 import { useUser } from "../../context/UserContext";
@@ -13,7 +12,7 @@ export default function ChatList({ chatID }) {
   const chatListRef = useRef(null);
   const { userStorage } = useUser();
 
-  const [value, loading, error] = useDocument(
+  const [value, loading] = useDocument(
     database.collection(`room-list/${chatID}/messages`).orderBy("sentAt")
   );
 
@@ -23,6 +22,7 @@ export default function ChatList({ chatID }) {
     connectRef.set(userStorage);
     connectRef.onDisconnect().remove();
     return () => connectRef.remove();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chatID]);
 
   const getChatList = () => {

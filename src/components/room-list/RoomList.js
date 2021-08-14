@@ -16,13 +16,9 @@ export default function RoomList({ toggleModal, setTitle }) {
   const { appTheme, language } = useTheme();
   const [roomsData, setRoomsData] = useState({});
 
-  const [value, loading, error] = useCollection(
-    database.collection("room-list")
-  );
+  const [value, loading] = useCollection(database.collection("room-list"));
 
-  const [snapshot, realtimeLoading, realtimeError] = useList(
-    realTime.ref(`rooms`)
-  );
+  const [snapshot] = useList(realTime.ref(`rooms`));
 
   useEffect(() => {
     setRoomsData(
