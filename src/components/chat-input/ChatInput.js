@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useTheme } from "../../context/ThemeContext";
 import { useUser } from "../../context/UserContext";
 import { database } from "../../firebase/firebaseUtils";
+import ChatColorPicker from "./ChatColorPicker";
 
 import "./ChatInput.style.scss";
 
@@ -37,6 +38,7 @@ export default function ChatInput({ chatID }) {
         type="text"
         className={`chat__input chat__input--${appTheme}`}
       />
+      <ChatColorPicker />
     </form>
   );
 }

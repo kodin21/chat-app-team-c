@@ -2,6 +2,7 @@
   &__form {
     grid-row: chatinput-start/chatinput-end;
     grid-column: chat-start/chat-end;
+    position: relative;
   }
   &__input {
     width: 100%;
@@ -22,5 +23,16 @@
       border-radius: 3px;
       font-size: 1.5rem;
     }
+  }
+  &__color-picker {
+    position: absolute;
+
+    top: 50%;
+    right: 2rem;
+    border: none;
+    width: 2.5rem;
+    height: 2.5rem;
+
+    transform: translateY(-50%);
   }
 }
