@@ -6,16 +6,18 @@ export default function RoomBox({ name, id, setTitle, userCount }) {
   const { appTheme } = useTheme();
 
   return (
-    <Link
-      className={`room-box__link room-box__link--${appTheme}`}
-      to={`/rooms/${id}`}
-      onClick={() => {
-        setTitle(name);
-      }}
-    >
-      <li className={`room-box room-box--${appTheme}`}>
-        &rarr;{name} - {userCount}
-      </li>
-    </Link>
+    <li className={`room-item room-item--${appTheme}`}>
+      <Link
+        to={`/rooms/${id}`}
+        onClick={() => {
+          setTitle(name);
+        }}
+      >
+        <span className="room-item__name">&rarr; {name}</span>
+        <span className={`room-item__count room-item__count--${appTheme} `}>
+          {userCount}
+        </span>
+      </Link>
+    </li>
   );
 }
