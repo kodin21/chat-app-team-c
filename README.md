@@ -9,10 +9,10 @@ Birden çok odası bulunan, herkesin oda ekleyebildiği, herkesin anonim olarak 
 
 ## Contributors
 
-- **Yusuf Cemal Tokmak** - (https://github.com/yusufcmlt)
-- **Onur Yüksekkaya** - (https://github.com/onur-yuksekkaya)
-- **Neim Ramazanoğlu** - (https://github.com/Neim-Ramazanoglu)
-- **Gizem Yakabağ** - (https://github.com/gizemykbg)
+- [Yusuf Cemal Tokmak] (https://github.com/yusufcmlt)
+- [Onur Yüksekkaya] (https://github.com/onur-yuksekkaya)
+- [Neim Ramazanoğlu] (https://github.com/Neim-Ramazanoglu)
+- [Gizem Yakabağ] (https://github.com/gizemykbg)
 
 1. Ana ekran (/login) ekranı
 
