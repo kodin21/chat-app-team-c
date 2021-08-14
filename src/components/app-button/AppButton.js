@@ -5,7 +5,7 @@ import "./AppButton.style.scss";
 
 export default function AppButton({ text, onClickFunction, type = "button" }) {
   const { appTheme } = useTheme();
-
+  //  click button
   return (
     <button
       type={type}

@@ -9,7 +9,7 @@ export default function Modal({ children, toggle }) {
       toggle((prevToggleState) => !prevToggleState);
     }
   };
-
+  // create room modal for general needs
   return (
     <div ref={modalRef} onClick={handleToggle} className="modal-page">
       <div className="modal-page__window">{children}</div>

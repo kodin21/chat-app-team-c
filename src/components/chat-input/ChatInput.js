@@ -12,7 +12,7 @@ export default function ChatInput({ chatID }) {
 
   const [msg, setMsg] = useState("");
   const ischatDisabled = chatID ? false : true;
-
+  // send message to firebase
   const sendMessage = (event) => {
     event.preventDefault();
     if (msg.trim()) {
@@ -29,7 +29,7 @@ export default function ChatInput({ chatID }) {
   const handleChatChange = (event) => {
     setMsg(event.target.value);
   };
-
+  // chat input html code
   return (
     <form className="chat__form" onSubmit={sendMessage}>
       <input
