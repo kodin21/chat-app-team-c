@@ -17,13 +17,13 @@ import { useTheme } from "../../context/ThemeContext";
 export default function Rooms() {
   const history = useHistory();
   const { id } = useParams();
+
   const { language, changeTheme, changeLanguage } = useTheme();
+  const { change_language, change_theme, room } = languages_data[language];
 
   const [isRoomLoaded, setRoomLoaded] = useState(false);
   const [isRoomModal, setRoomModal] = useState(false);
-  const [roomName, setRoomName] = useState("Room");
-
-  const { change_language, change_theme } = languages_data[language];
+  const [roomName, setRoomName] = useState(room);
 
   const isRoomExists = () => {
     if (id) {
@@ -52,6 +52,10 @@ export default function Rooms() {
   return (
     isRoomLoaded && (
       <div className="rooms-page">
+        <div className="rooms-page__buttons">
+          <AppButton text={change_language} onClickFunction={changeLanguage} />
+          <AppButton text={change_theme} onClickFunction={changeTheme} />
+        </div>
         <AppWindow title={roomName}>
           <div className="rooms-page__content">
             <RoomList toggleModal={setRoomModal} setTitle={setRoomName} />
@@ -60,10 +64,6 @@ export default function Rooms() {
           </div>
         </AppWindow>
         {isRoomModal && <AddRoomModal toggleModal={setRoomModal} />}
-        <div className="rooms-page__buttons">
-          <AppButton text={change_language} onClickFunction={changeLanguage} />
-          <AppButton text={change_theme} onClickFunction={changeTheme} />
-        </div>
       </div>
     )
   );
