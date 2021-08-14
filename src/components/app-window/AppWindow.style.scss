@@ -1,6 +1,6 @@
 .window {
   display: grid;
-  grid-template-rows: 4rem 1fr;
+  grid-template-rows: 5rem 1fr;
 
   width: 100%;
   height: 100%;
@@ -11,6 +11,8 @@
     font-size: 2rem;
     padding-left: 1rem;
     color: white;
+    display: flex;
+    align-items: center;
     &--retro {
       background: linear-gradient(
         90deg,
@@ -23,11 +25,9 @@
     }
     &--modern {
       font-size: 1.6rem;
-      display: flex;
-      align-items: center;
 
       border-radius: 3px 3px 0 0;
-      background-color: #251c3b;
+      background-color: #4220a3;
 
       font-weight: 500;
     }
