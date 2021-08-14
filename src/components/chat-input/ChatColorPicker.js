@@ -1,7 +1,7 @@
 import React from "react";
 import { useUser } from "../../context/UserContext";
 
-export default function ChatColorPicker({}) {
+export default function ChatColorPicker({ disabled }) {
   const { userStorage, setUserStorage } = useUser();
 
   const { color } = userStorage;
@@ -19,6 +19,7 @@ export default function ChatColorPicker({}) {
 
   return (
     <input
+      disabled={disabled}
       onChange={handleChangeColor}
       className="chat__color-picker"
       type="color"

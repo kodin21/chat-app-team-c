@@ -11,6 +11,7 @@ export default function ChatInput({ chatID }) {
   const { userStorage } = useUser();
 
   const [msg, setMsg] = useState("");
+  const ischatDisabled = chatID ? false : true;
 
   const sendMessage = (event) => {
     event.preventDefault();
@@ -32,13 +33,13 @@ export default function ChatInput({ chatID }) {
   return (
     <form className="chat__form" onSubmit={sendMessage}>
       <input
-        disabled={chatID ? false : true}
+        disabled={ischatDisabled}
         value={msg}
         onChange={handleChatChange}
         type="text"
         className={`chat__input chat__input--${appTheme}`}
       />
-      <ChatColorPicker />
+      <ChatColorPicker disabled={ischatDisabled} />
     </form>
   );
 }
