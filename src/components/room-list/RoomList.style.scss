@@ -1,0 +1,92 @@
+.room-list {
+  grid-row: roomlist-start / roomlist-end;
+  grid-column: roomlist-start / roomlist-end;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  &__heading {
+    font-size: 1.8rem;
+    text-align: center;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 1rem 0;
+  }
+  &__buttons {
+    margin-top: auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  &--retro {
+    border: 2px solid #7b7b7b;
+    background-color: white;
+  }
+  &--modern {
+    background-color: white;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+    border-radius: 3px;
+  }
+}
+
+.room-item {
+  list-style: none;
+
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+
+  a {
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    color: #000;
+    &:visited,
+    &:link {
+      text-decoration: none;
+    }
+  }
+  &__name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    flex-basis: 75%;
+  }
+
+  &__count {
+    width: 2rem;
+    height: 2rem;
+    text-align: center;
+    margin-left: auto;
+
+    &--retro {
+      background-color: #fcc82e;
+    }
+    &--modern {
+      color: white;
+      background-color: #461aa4;
+    }
+  }
+
+  &--retro {
+    font-size: 1.4rem;
+    &:hover {
+      background-color: #461aa4;
+      a {
+        color: white;
+      }
+    }
+  }
+  &--retro:hover &__count {
+    color: black;
+  }
+  &--modern {
+    font-size: 1.2rem;
+    border-radius: 2px;
+    &:hover {
+      background-color: #fcc82e;
+    }
+  }
+}

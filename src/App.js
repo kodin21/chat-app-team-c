@@ -1,23 +1,47 @@
-import logo from './logo.svg';
-import './App.css';
+import { useTheme } from "./context/ThemeContext";
+import { Switch, Route, Redirect } from "react-router-dom";
+
+import "./App.scss";
+import Login from "./pages/login/Login";
+import Rooms from "./pages/rooms/Rooms";
+import { useUser } from "./context/UserContext";
+
+const pageComponents = {
+  login: <Login />,
+  rooms: <Rooms />,
+};
+
+//Check if user exists then navigate to destionation path
+function redirectUser(user, routePath, destinationPath) {
+  return user ? (
+    <Redirect to={`/${destinationPath}`} />
+  ) : (
+    pageComponents[routePath]
+  );
+}
 
 function App() {
+  //Theme Context
+  const { appTheme } = useTheme();
+  const { userStorage } = useUser();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`app app__background--${appTheme}`}>
+      <Switch>
+        <Route exact path="/">
+          <Redirect to={`/${userStorage ? "rooms" : "login"}`} />
+        </Route>
+        <Route exact path="/login">
+          {redirectUser(userStorage, "login", "rooms")}
+        </Route>
+        <Route exact path="/rooms/:id">
+          {redirectUser(!userStorage, "rooms", "login")}
+        </Route>
+        <Route exact path="/rooms/">
+          {redirectUser(!userStorage, "rooms", "login")}
+        </Route>
+        <Route path="*">{redirectUser(userStorage, "login", "rooms")}</Route>
+      </Switch>
     </div>
   );
 }

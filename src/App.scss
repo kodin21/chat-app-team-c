@@ -1,0 +1,17 @@
+.app {
+  height: 100vh;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  &__background--retro {
+    background-image: url("./assets/img/app__background--retro.png");
+    background-size: cover;
+    font-family: "Fixedsys Excelsior 3.01";
+  }
+  &__background--modern {
+    background-color: #fcc82e;
+    font-family: "Montserrat", sans-serif;
+  }
+}

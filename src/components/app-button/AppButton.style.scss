@@ -1,0 +1,29 @@
+.app-button {
+  border: none;
+  font-family: inherit;
+  font-size: 2rem;
+  padding: 0.8rem 2rem;
+  transition: 0.1s;
+  cursor: pointer;
+
+  &--retro {
+    background-color: #bdbdbd;
+    border-left: 1px solid #dedede;
+    border-top: 1px solid #dedede;
+    border-right: 1px solid #7b7b7b;
+    border-bottom: 1px solid #7b7b7b;
+    box-shadow: 1px 1px 0 0.5px #000, -0px 0px 0 1px #fff;
+  }
+  &--modern {
+    background-color: #4220a3;
+    color: white;
+    border-radius: 2px;
+    font-size: 1.8rem;
+    font-weight: 500;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+      rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+  &:active {
+    transform: translateY(2px);
+  }
+}
